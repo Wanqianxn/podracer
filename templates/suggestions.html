@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- gpodder -->
+<section class="call-to-action text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <h1 class="mb-5">Suggestions from gpodder.et </h1>
+            </div>
+            <h3> These are suggested podcasts from gpodder.net, based on your subscriptions. </h3>
+        </div>
+    </div>
+</section>
+<section class="features-icons bg-light text-center">
+    <div class="container">
+        <div class="row">
+            <table>
+                <col width="150">
+                <col width="200">
+                <col width="800">
+                <col width="100">
+                <tr>
+                    <th style="padding-top: 12px; padding-bottom: 12px;background-color: #477187;color: white;">Logo</th>
+                    <th style="padding-top: 12px; padding-bottom: 12px;background-color: #477187;color: white;">Title</th>
+                    <th style="padding-top: 12px; padding-bottom: 12px;background-color: #477187;color: white;">Description</th>
+                    <th style="padding-top: 12px; padding-bottom: 12px;background-color: #477187;color: white;">Subscribers</th>
+                </tr>
+                <style>
+                    div.tbodyclass tr:nth-child(even) {
+                    color: #F2f2f2;
+                    }
+                </style>
+                <div class="tbodyclass">
+                    {% for sugg in suggestions %}
+                    <tr>
+                        <td style="padding-top: 8px; padding-bottom: 8px;"><a href={{ sugg["website"] }}><img src={{ sugg["logo_url"] }} alt={{ sugg["title"] }} width="100" height="100"></a></td>
+                        <td style="padding-top: 8px; padding-bottom: 8px;">{{ sugg["title"] }}</td>
+                        <td style="padding-top: 8px; padding-bottom: 8px;">{{ sugg["description"] }}</td>
+                        <td style="padding-top: 8px; padding-bottom: 8px;">{{ sugg["subscribers"] }}</td>
+                    </tr>
+                    {% endfor %}
+                </div>
+            </table>
+        </div>
+    </div>
+</section>
+<!-- clustering -->
+<section class="call-to-action text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <h1 class="mb-5">Suggestions from PodRacer </h1>
+            </div>
+            <h3> These are suggested podcasts our machine learning algorithm recommends, based on your subscriptions. </h3>
+        </div>
+    </div>
+</section>
+<section class="features-icons bg-light text-center">
+    <div class="container">
+        <div class="row">
+            <table>
+                <col width="150">
+                <col width="200">
+                <col width="800">
+                <col width="100">
+                <tr>
+                    <th style="padding-top: 12px; padding-bottom: 12px;background-color: #477187;color: white;">Logo</th>
+                    <th style="padding-top: 12px; padding-bottom: 12px;background-color: #477187;color: white;">Title</th>
+                    <th style="padding-top: 12px; padding-bottom: 12px;background-color: #477187;color: white;">Description</th>
+                    <th style="padding-top: 12px; padding-bottom: 12px;background-color: #477187;color: white;">Subscribers</th>
+                </tr>
+                <style>
+                    div.tbodyclass tr:nth-child(even) {
+                    color: #F2f2f2;
+                    }
+                </style>
+                <div class="tbodyclass">
+                    {% for msugg in ml_suggestions %}
+                    <tr>
+                        <td style="padding-top: 8px; padding-bottom: 8px;"><a href={{ msugg["website"] }}><img src={{ msugg["logo_url"] }} alt={{ msugg["title"] }} width="100" height="100"></a></td>
+                        <td style="padding-top: 8px; padding-bottom: 8px;">{{ msugg["title"] }}</td>
+                        <td style="padding-top: 8px; padding-bottom: 8px;">{{ msugg["description"] }}</td>
+                        <td style="padding-top: 8px; padding-bottom: 8px;">{{ msugg["subscribers"] }}</td>
+                    </tr>
+                    {% endfor %}
+                </div>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

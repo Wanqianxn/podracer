@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Search results -->
+<section class="call-to-action text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <h1 class="mb-5">Search Results </h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="features-icons bg-light text-center">
+    <div class="container">
+        <div class="row">
+            <table>
+                <col width="150">
+                <col width="200">
+                <col width="800">
+                <col width="100">
+                <tr>
+                    <th style="padding-top: 12px; padding-bottom: 12px;background-color: #477187;color: white;">Logo</th>
+                    <th style="padding-top: 12px; padding-bottom: 12px;background-color: #477187;color: white;">Title</th>
+                    <th style="padding-top: 12px; padding-bottom: 12px;background-color: #477187;color: white;">Description</th>
+                    <th style="padding-top: 12px; padding-bottom: 12px;background-color: #477187;color: white;">Subscribers</th>
+                </tr>
+                <style>
+                    div.tbodyclass tr:nth-child(even) {
+                    color: #F2f2f2;
+                    }
+                </style>
+                <div class="tbodyclass">
+                    {% for result in results %}
+                    <tr>
+                        <td style="padding-top: 8px; padding-bottom: 8px;"><a href={{ result["website"] }}><img src={{ result["logo_url"] }} alt={{ result["title"] }} width="100" height="100"></a></td>
+                        <td style="padding-top: 8px; padding-bottom: 8px;">{{ result["title"] }}</td>
+                        <td style="padding-top: 8px; padding-bottom: 8px;">{{ result["description"] }}</td>
+                        <td style="padding-top: 8px; padding-bottom: 8px;">{{ result["subscribers"] }}</td>
+                    </tr>
+                    {% endfor %}
+                </div>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
