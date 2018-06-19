@@ -13,7 +13,7 @@ A simple Flask web application for managing podcast content, using gpodder.net's
 
 - **Recent Episodes + Smart Sorting:** A list of the episodes released in the previous week (up to 7 days before current time) is available on the home page, with embedded playable links. This list is sorted by podcast frequency, such that podcasts with more episodes released in the past week are bubbled to the top, so that users can catch up on them first. However, the sorting algorithm also distributes the frequent episodes equally such that users are not inundated with multiple episodes from the same podcast at one time.
 
-##### Bonus Features
+#### Bonus Features
 
 - **Suggestions from gpodder:** Users can see gpodder's top 5 recommendations for podcasts to subscribe to, based on the user's current subscriptions.
 
